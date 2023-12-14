@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: #2d2ddf;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button onclick="result"></button> -->
+    <script>
+        // const switchCase = () => {
+        //     let data = prompt("Masukkan data anda")
+
+        //     switch (data.toLowerCase()) {
+        //         case "senin":
+        //             alert("Meeting")
+        //             break
+        //         case "selasa":
+        //             alert("Meeting")
+        //             break
+        //         default:
+        //             alert("Libur")
+        //     }
+        // }
+
+        function hitungfaktorial(x) {
+            if (x === 0 || x === 1) {
+                return 1
+            } else {
+                return x * hitungfaktorial(x - 1)
+            }
+        }
+
+        let result = hitungfaktorial(prompt("Masukkan angka: "))
+        alert(result)
+    </script>
+</body>
+
+</html>

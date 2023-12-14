@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="customerForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <br>
+        <label for="nomorAkun">Nomor Akun:</label>
+        <input type="text" id="nomorAkun" name="nomorAkun" required>
+        <br>
+        <button type="button" onclick="validasiDataPelanggan()">Validasi</button>
+    </form>
+    <script>
+        function validasiDataPelanggan() {
+            // Mengambil nilai input dari formulir
+            const nama = document.getElementById('nama').value;
+            const nomorAkun = document.getElementById('nomorAkun').value;
+
+            // Menjalankan validasi
+            if (cekNama(nama) && cekNomorAkun(nomorAkun)) {
+                alert('Data pelanggan valid!');
+            } else {
+                alert('Data pelanggan tidak valid. Harap periksa kembali input Anda.');
+            }
+        }
+
+        // Fungsi untuk memeriksa validitas nama
+        function cekNama(nama) {
+            // Misalnya, valid jika nama memiliki setidaknya 3 karakter
+            return nama.length >= 3;
+        }
+
+        // Fungsi untuk memeriksa validitas nomor akun
+        function cekNomorAkun(nomorAkun) {
+            // Misalnya, valid jika nomor akun adalah angka dan memiliki setidaknya 5 karakter
+            return /^\d+$/.test(nomorAkun) && nomorAkun.length >= 5;
+        }
+    </script>
+</body>
+
+</html>

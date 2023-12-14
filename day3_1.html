@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2d2ddf;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6b89ec;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form id="customerForm">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <br>
+        <label for="accountnumber">Account Number:</label>
+        <input type="accountnumber" id="accountnumber" name="accountnumber" required>
+        <br>
+        <button type="button" onclick="addcustomer()">Simpan</button>
+    </form> -->
+    <script>
+        let customers = []; // This array will hold customer objects
+
+        function addCustomer(name, accountNumber) {
+            let newCustomer = {
+                name: name,
+                accountNumber: accountNumber,
+                balance: 0,
+                transactionHistory: []
+            };
+            customers.push(newCustomer);
+        }
+
+        function findCustomerByAccountNumber(accountNumber) {
+            return customers.find(customer => customer.accountNumber === accountNumber);
+        }
+
+        function deposit(accountNumber, amount) {
+            let customer = findCustomerByAccountNumber(accountNumber);
+            if (customer) {
+                customer.balance += amount;
+                customer.transactionHistory.push({ date: Date.now(), type: 'deposit', amount: amount });
+                console.log(`Deposit of ${amount} to account number ${accountNumber} was successful.`);
+            } else {
+                console.log(`Customer with account number ${accountNumber} not found.`);
+            }
+        }
+
+        function withdraw(accountNumber, amount) {
+            let customer = findCustomerByAccountNumber(accountNumber);
+            if (customer) {
+                if (customer.balance >= amount) {
+                    customer.balance -= amount;
+                    customer.transactionHistory.push({ type: 'withdrawal', amount: amount });
+                    console.log(`Withdrawal of ${amount} from account number ${accountNumber} was successful.`);
+                } else {
+                    console.log(`Insufficient balance for withdrawal from account number ${accountNumber}.`);
+                }
+            } else {
+                console.log(`Customer with account number ${accountNumber} not found.`);
+            }
+        }
+
+        addCustomer('John Doe', '123456789');
+        deposit('123456789', 1000);
+        withdraw('123456789', 500);
+    </script>
+</body>
+
+</html>

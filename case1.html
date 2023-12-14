@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 3 Kolom CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #df2d9b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f095bb;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Kalkulator Bunga Tabungan</h2>
+    <form id="calcForm">
+        <label for="initialSavings">Jumlah Tabungan Awal:</label>
+        <input type="number" name="initialSavings" id="initialSavings" required>
+
+        <label for="annualInterestRate">Tingkat Bunga Tahunan (%):</label>
+        <input type="number" name="annualInterestRate" id="annualInterestRate" required>
+
+        <label for="savingPeriod">Periode Tabungan (bulan):</label>
+        <input type="number" name="savingPeriod" id="savingPeriod" required>
+
+        <button type="button" onclick="hitungBungaTabungan()">Hitung</button>
+    </form>
+
+    <div id="output"></div>
+    <script src="./try.js"></script>
+</body>
+
+</html>

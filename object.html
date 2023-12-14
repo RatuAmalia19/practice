@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid #3498db;
+            /* Warna garis pinggir tombol */
+            border-radius: 5px;
+            /* Sudut lengkung pada tombol */
+            color: #ffffff;
+            /* Warna teks pada tombol */
+            background-color: #3498db;
+            /* Warna latar belakang tombol */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Efek transisi saat hover */
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="fetchapi(fetch)" class="button"></button>
+    <script>
+        // function fetchapi() {
+        //     fetch('https://jsonplaceholder.typicode.com/todos/')
+        //         .then(data => data.json())
+        //         .then(data => console.log(data[20]))
+        // }
+
+        function fetchapi() {
+            fetch('https://jsonplaceholder.typicode.com/todos/')
+                .then(data => data.json())
+                .then(data => {
+                    data.forEach(element => {
+                        console.log(element.completed)
+                    });
+
+                })
+        }
+    </script>
+</body>
+
+</html>

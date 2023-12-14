@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let bintang = prompt("Masukkan Jumlah bintang: ")
+
+        // for (let i = 1; i <= bintang; i++) {
+        //     let baris = '';
+        //     for (let j = 1; j <= bintang - i; j++) {
+        //         baris += ' ';
+        //     }
+        //     for (let k = 1; k <= i; k++) {
+        //         baris += '*';
+        //     }
+        //     console.log(baris);
+        // }
+
+        // for (let i = bintang; i >= 1; i--) {
+        //     let bar = " "
+        //     for (let j = 1; j <= i; j++) {
+        //         bar += "*"
+        //     }
+        //     console.log(bar)
+        // }
+
+        function createtriangle(inibaris, condition) {
+            if (condition = "terbalik") {
+                for (let i = jumlahbaris; i >= 1; i--) {
+                    let spasi = ' '.repeat(jumlahbaris - i)
+                    let bintang = '*'.repeat(i)
+                    console.log(spasi + bintang)
+                }
+            } else {
+                for (let i = 1; i <= jumlahbaris; i++) {
+                    let spasi = ' '.repeat(jumlahbaris - 1)
+                    let bintang = '*'.repeat(i)
+                    console.log(spasi + bintang)
+                }
+            }
+        }
+
+        createtriangle()
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
